@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Scanner;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -67,7 +69,8 @@ public class MainActivity extends ActionBarActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    updateDetail();
+                    //updateDetail();
+                    execTest();
                 }
             });
             Button button2 = (Button) rootView.findViewById(R.id.button2);
@@ -101,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
                 maxDuration = lilaDuration;
 
             for (int j = 0; j < a.length; j++) {
-
+                ;
             }
 
             String newTime = String.valueOf(lilaTimeCur);
@@ -109,6 +112,17 @@ public class MainActivity extends ActionBarActivity {
 
             view.setText(s + "#" + newTime + "(min " + minDuration + "ms, max "
                     +  maxDuration + "ms): " + newDuration + "ms");
+        }
+
+        public static void execTest()
+        {
+            int a, b, c;
+            //String s1, s2;
+            System.out.println("Введите два числа");
+            a = new Scanner(System.in).nextInt();
+            b = new Scanner(System.in).nextInt();
+            c = a + b;
+            System.out.println("Сумма ваших чисел равна " + c);
         }
     }
 }

@@ -4,7 +4,7 @@
     <string name="app_name">MyAppLvl1.1</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="button_text">Button</string>
+    <string name="button_text">Go!</string>
     <string name="button2">Button</string>
 
 </resources>
