@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onClick(View v) {
                     //updateDetail();
-                    execTest();
+                    //execTest();
                 }
             });
             Button button2 = (Button) rootView.findViewById(R.id.button2);
@@ -80,6 +80,16 @@ public class MainActivity extends ActionBarActivity {
                     updateDetail();
                 }
             });
+
+            Button button3 = (Button) rootView.findViewById(R.id.button3);
+            button3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    testLight();
+                }
+            });
+
+
             lilaTimeCur = System.currentTimeMillis();
             lilaDuration = lilaTimeCur - lilaTimePrev;
 
@@ -123,6 +133,16 @@ public class MainActivity extends ActionBarActivity {
             b = new Scanner(System.in).nextInt();
             c = a + b;
             System.out.println("Сумма ваших чисел равна " + c);
+        }
+
+        public void testLight()
+        {
+            TextView view = (TextView) getView().findViewById(R.id.lilaTextView);
+
+            Light lt = new Light(view);
+            //lt.setPrintBuffer(view);
+            lt.on().printState();
+            lt.off().printState();
         }
     }
 }
