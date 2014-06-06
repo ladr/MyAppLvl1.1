@@ -140,9 +140,9 @@ public class MainActivity extends ActionBarActivity {
             TextView view = (TextView) getView().findViewById(R.id.lilaTextView);
 
             Light lt = new Light(view);
-            //lt.setPrintBuffer(view);
             lt.on().printState();
             lt.off().printState();
+            lt.on().printState();
         }
     }
 }
