@@ -7,5 +7,6 @@
     <string name="button_text">Go!</string>
     <string name="button2_text">Button</string>
     <string name="button3_text">Light</string>
+    <string name="button_lsn_text">Launch!</string>
 
 </resources>

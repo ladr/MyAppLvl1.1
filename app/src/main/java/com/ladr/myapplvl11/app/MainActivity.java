@@ -9,7 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import com.ladr.myapplvl11.app.figures.Circle;
+import com.ladr.myapplvl11.app.test1.Cat;
 
 import java.util.Scanner;
 
@@ -70,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onClick(View v) {
                     //updateDetail();
-                    //execTest();
+                    execTest2();
                 }
             });
             Button button2 = (Button) rootView.findViewById(R.id.button2);
@@ -85,7 +89,16 @@ public class MainActivity extends ActionBarActivity {
             button3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    testLight();
+                    //testLight();
+                    testFigures();
+                }
+            });
+
+            Button button_launch = (Button) rootView.findViewById(R.id.button_launch);
+            button_launch.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    launchLessonTest();
                 }
             });
 
@@ -124,15 +137,23 @@ public class MainActivity extends ActionBarActivity {
                     +  maxDuration + "ms): " + newDuration + "ms");
         }
 
-        public static void execTest()
+        public void execTest2()
         {
             int a, b, c;
-            //String s1, s2;
-            System.out.println("Введите два числа");
-            a = new Scanner(System.in).nextInt();
-            b = new Scanner(System.in).nextInt();
+            EditText e1 = (EditText)getView().findViewById(R.id.lilaNumber1);
+            EditText e2 = (EditText)getView().findViewById(R.id.lilaNumber2);
+            TextView view = (TextView) getView().findViewById(R.id.lilaTextView);
+
+            if(e1.length()==0)
+                e1.setText("0");
+            if(e2.length()==0)
+                e2.setText("0");
+
+            a = Integer.valueOf(e1.getText().toString());
+            b = Integer.valueOf(e2.getText().toString());
             c = a + b;
-            System.out.println("Сумма ваших чисел равна " + c);
+
+            view.setText("Sum: " + String.valueOf(c));
         }
 
         public void testLight()
@@ -143,6 +164,32 @@ public class MainActivity extends ActionBarActivity {
             lt.on().printState();
             lt.off().printState();
             lt.on().printState();
+        }
+
+        public void testCat(){
+            TextView view = (TextView) getView().findViewById(R.id.lilaTextView);
+            Cat cat = new Cat();
+
+        }
+
+        public void testFigures(){
+            TextView view = (TextView) getView().findViewById(R.id.lilaTextView);
+
+            Circle circle = new Circle(view);
+            circle.draw();
+            circle.erase();
+            circle.draw();
+            circle.erase();
+            circle.draw();
+            circle.erase();
+        }
+
+        public void launchLessonTest()
+        {
+            TextView view = (TextView) getView().findViewById(R.id.lilaTextView);
+            SystemOutView sysOut = new SystemOutView(view);
+
+            System.out.println("Hello, hello! This is: " + view);
         }
     }
 }
